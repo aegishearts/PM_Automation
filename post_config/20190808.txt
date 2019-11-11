@@ -1,0 +1,4 @@
+insert protocols bgp group KINX-IX-RS import pl-DENY-ANY after KINX-IX-RS-IN
+insert protocols bgp group KINX-IX-RS export pl-DENY-ANY after KINX-IX-RS-OUT
+insert protocols bgp group KINX-IX import pl-DENY-ANY after KINX-IX-IN
+insert protocols bgp group KINX-IX export pl-DENY-ANY after KINX-IX-OUT
