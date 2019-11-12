@@ -22,6 +22,4 @@ if __name__ == "__main__":
 		RUN.Apply_Config(Hostname, Vendor, config_file)
 	elif task == 'post-check':
                 MP.Make_check_status(Hostname, Vendor, Value, config_file)
-		#### Need to add function :: compare pre-task result. if no issue, run post-config
-		#### check crontab last job => Get time => +30minutes => Create crontab job for post-config
-		#### reset crontab job after post-config 'crontab -r'
+				### Need to add compare status and rollback automatically

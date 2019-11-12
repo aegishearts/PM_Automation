@@ -8,10 +8,10 @@ from Tracking_Network_event import Interface_Status_Checker as INTS
 
 ########################################################
 today = datetime.today().strftime('%Y%m%d')
-Pre_config_txt = '/home/admin3/NET_Script/PM_Automation/pre_config/'+today+'.txt'
-Post_config_txt = '/home/admin3/NET_Script/PM_Automation/post_config/'+today+'.txt'
-Pre_task_info = '/home/admin3/NET_Script/PM_Automation/pre_task_information/'+today
-Post_task_info = '/home/admin3/NET_Script/PM_Automation/post_task_information/'+today
+Pre_config_txt = '/XXXXXX/PM_Automation/pre_config/'+today+'.txt'
+Post_config_txt = '/XXXXXX/PM_Automation/post_config/'+today+'.txt'
+Pre_task_info = '/XXXXXX/PM_Automation/pre_task_information/'+today
+Post_task_info = '/XXXXXX/PM_Automation/post_task_information/'+today
 ########################################################
 
 def JUNOS_Make_pre_config(BGP_DIC):
@@ -73,11 +73,11 @@ def Apply_task(Time, Step, Host, Vendor, Value):
 	m = Time.split()[1].split(':')[1]
 	if Step == 'pre-check':
 		config_file = Pre_task_info
-		CMD = m+' '+h+' '+D+' '+M+' * /usr/local/bin/python /home/admin3/jaekyeong/PM_Automation/Do_task.py '+Step+' '+config_file+' '+Host+' '+Vendor+' '+Value
+		CMD = m+' '+h+' '+D+' '+M+' * /usr/local/bin/python /XXXXXX/PM_Automation/Do_task.py '+Step+' '+config_file+' '+Host+' '+Vendor+' '+Value
 	elif Step == 'pre-config':
 		config_file = Pre_config_txt
-		CMD = m+' '+h+' '+D+' '+M+' * /usr/local/bin/python /home/admin3/jaekyeong/PM_Automation/Do_task.py '+Step+' '+config_file+' '+Host+' '+Vendor
+		CMD = m+' '+h+' '+D+' '+M+' * /usr/local/bin/python /XXXXXX/PM_Automation/Do_task.py '+Step+' '+config_file+' '+Host+' '+Vendor
 	elif Step == 'post-check':
 		config_file = Post_task_info
-		CMD = m+' '+h+' '+D+' '+M+' * /usr/local/bin/python /home/admin3/jaekyeong/PM_Automation/Do_task.py '+Step+' '+config_file+' '+Host+' '+Vendor+' '+Value
+		CMD = m+' '+h+' '+D+' '+M+' * /usr/local/bin/python /XXXXXX/PM_Automation/Do_task.py '+Step+' '+config_file+' '+Host+' '+Vendor+' '+Value
 	os.system('(crontab -l 2>\/dev\/null; echo \"'+CMD+'\") | crontab -')

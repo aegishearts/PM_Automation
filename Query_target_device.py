@@ -17,7 +17,7 @@ def Find_Target_Device(POP, ISP, Circuit_List):
 	Port_DIC = {}
 	for i in SW_List:
 		if 'bb' in i:
-		        Vendor,Code = DB.Search_Host_NIDB(i)
+		    Vendor,Code = DB.Search_Host_NIDB(i)
 			RST = CFG.Find_Port_by_Description(i,Vendor,Circuit_List)
 			if not RST == None:
 				DIC = CFG.Find_BGP_Group_Name_for_IX(i,Vendor,RST)
